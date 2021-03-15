@@ -8,12 +8,11 @@ DataPort::DataPort()
     aliasPortName.clear();
     baudRate.clear();
     dataBits.clear();
-    direction.clear();
     flowControl.clear();
     parity.clear();
     stopBits.clear();
-    responseTimeout = 0;
-    deleyBetweenPull = 0;
+    responseTimeout = 2000;
+    deleyBetweenPull = 1000;
     listDevice.clear();
 }
 
@@ -27,12 +26,6 @@ QStringList DataPort::getListDataBits()
 {
     QStringList dataBits = {"5","6","7","8"};
     return dataBits;
-}
-
-QStringList DataPort::getListDirection()
-{
-    QStringList direction = {"Input", "Output", "AllDirections"};
-    return direction;
 }
 
 QStringList DataPort::getListFlowControl()
@@ -53,19 +46,6 @@ QStringList DataPort::getListStopBits()
     return stopBits;
 }
 
-void DataPort::setFillDefaultDataPort()
-{
-
-    aliasPortName = "NONE";
-    baudRate = "9600";
-    dataBits = "8";
-    direction = "AllDirections";
-    flowControl = "No flow";
-    parity = "No parity";
-    stopBits = "1";
-    responseTimeout = 2000;
-    deleyBetweenPull = 1000;
-}
 
 QList<int> DataPort::listSlaveId()
 {

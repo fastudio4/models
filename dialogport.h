@@ -14,6 +14,8 @@ public:
     void defaultSettingPort(void);
 private slots:
     void on_cbxPort_activated(const QString &arg1);
+    void on_btnScanPort_clicked();
+    void on_cbxPort_currentIndexChanged(const QString &arg1);
 
 private:
     QStringList portName(void);

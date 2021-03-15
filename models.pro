@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     application.cpp \
+    data.cpp \
     datadevice.cpp \
     dataport.cpp \
     dialogdevice.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 
 HEADERS += \
     application.h \
+    data.h \
     datadevice.h \
     dataport.h \
     dialogdevice.h \

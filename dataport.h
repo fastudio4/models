@@ -24,9 +24,6 @@ public:
     QString getDataBits(void) { return dataBits; }
     void setDataBits(const QString &data) { dataBits = data; }
 
-    QString getDirection(void) { return direction; }
-    void setDirection(const QString &data) { direction = data; }
-
     QString getFlowControl(void) { return flowControl; }
     void setFlowControl(const QString &data) { flowControl = data; }
 
@@ -44,12 +41,9 @@ public:
 
     QStringList getListBaudRate(void);
     QStringList getListDataBits(void);
-    QStringList getListDirection(void);
     QStringList getListFlowControl(void);
     QStringList getListParity(void);
     QStringList getListStopBits(void);
-
-    void setFillDefaultDataPort(void);
 
     void newSlaveDevice(void);
     QList<int> listSlaveId(void);
@@ -66,7 +60,6 @@ private:
     QString aliasPortName;
     QString baudRate;
     QString dataBits;
-    QString direction;
     QString flowControl;
     QString parity;
     QString stopBits;

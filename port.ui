@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>473</width>
-    <height>279</height>
+    <width>602</width>
+    <height>270</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,31 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QComboBox" name="cbxPort"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QComboBox" name="cbxPort">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnScanPort">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Reload</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
@@ -53,7 +77,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <layout class="QFormLayout" name="formLayout">
+         <layout class="QFormLayout" name="formLayout_2">
           <item row="0" column="0">
            <widget class="QLabel" name="lblBaudRate">
             <property name="text">
@@ -63,6 +87,12 @@
           </item>
           <item row="0" column="1">
            <widget class="QComboBox" name="cbxBaudRate">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="currentIndex">
              <number>-1</number>
             </property>
@@ -76,17 +106,31 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="cbxDataBits"/>
+           <widget class="QComboBox" name="cbxDataBits">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QLabel" name="lblDirection">
+           <widget class="QLabel" name="lblFlowControl">
             <property name="text">
-             <string>Direction:</string>
+             <string>Flow control:</string>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QComboBox" name="cbxDirection"/>
+           <widget class="QComboBox" name="cbxFlowControl">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -98,16 +142,23 @@
          </widget>
         </item>
         <item>
-         <layout class="QFormLayout" name="formLayout_2">
+         <layout class="QFormLayout" name="formLayout">
           <item row="0" column="0">
-           <widget class="QLabel" name="lblFlowControl">
+           <widget class="QLabel" name="lblPortAlias">
             <property name="text">
-             <string>Flow control:</string>
+             <string>Alias:</string>
             </property>
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="cbxFlowControl"/>
+           <widget class="QLineEdit" name="edtPortAlias">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="lblParity">
@@ -117,7 +168,14 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="cbxParity"/>
+           <widget class="QComboBox" name="cbxParity">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="lblStopBits">
@@ -127,7 +185,14 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QComboBox" name="cbxStopBits"/>
+           <widget class="QComboBox" name="cbxStopBits">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -139,20 +204,6 @@
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
-      </item>
-      <item>
-       <layout class="QFormLayout" name="formLayout_3">
-        <item row="0" column="0">
-         <widget class="QLabel" name="lblPortAlias">
-          <property name="text">
-           <string>Alias port:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="edtPortAlias"/>
-        </item>
-       </layout>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
