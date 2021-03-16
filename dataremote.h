@@ -3,7 +3,7 @@
 
 #include <QList>
 #include "dataport.h"
-//#include "datadevice.h"
+
 
 namespace DATA {
 
@@ -14,14 +14,20 @@ public:
     Data();
     virtual ~Data();
     QStringList uploadListPort();
-    int indexBaudRate();
-    int indexDataBits();
-    int indexFlowControl();
-    int indexParity();
-//    QString aliasPort();
-    int indexStopBits();
+    int indexBaudRate(int indexPort);
+    int indexDataBits(int indexPort);
+    int indexFlowControl(int indexPort);
+    int indexParity(int indexPort);
+    int indexStopBits(int indexPort);
+    int countData() {return data.count();}
 private:
-    void fillPortData(const QString &name);
+    QStringList getListBaudRate(void);
+    QStringList getListDataBits(void);
+    QStringList getListFlowControl(void);
+    QStringList getListParity(void);
+    QStringList getListStopBits(void);
+
+    void fillPortData(const QString &namePort);
     QList<DataPort> data;
 
 };

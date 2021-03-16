@@ -16,36 +16,6 @@ DataPort::DataPort()
     listDevice.clear();
 }
 
-QStringList DataPort::getListBaudRate()
-{
-    QStringList baudRate = {"1200", "2400", "4800", "9600", "19200", "38400", "57600", "115200" };
-    return baudRate;
-}
-
-QStringList DataPort::getListDataBits()
-{
-    QStringList dataBits = {"5","6","7","8"};
-    return dataBits;
-}
-
-QStringList DataPort::getListFlowControl()
-{
-    QStringList flowControl = {"No flow", "Hardware", "Software"};
-    return flowControl;
-}
-
-QStringList DataPort::getListParity()
-{
-    QStringList parity = {"No parity", "Even Parity", "Odd Parity", "Space Parity", "Mark Parity"};
-    return parity;
-}
-
-QStringList DataPort::getListStopBits()
-{
-    QStringList stopBits = {"1","1.5", "2"};
-    return stopBits;
-}
-
 
 QList<int> DataPort::listSlaveId()
 {

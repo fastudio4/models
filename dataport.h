@@ -39,12 +39,6 @@ public:
     int getDeleyBetweenPull(void) { return deleyBetweenPull; }
     void setDeleyBetweenPull (const int &data) { deleyBetweenPull = data; }
 
-    QStringList getListBaudRate(void);
-    QStringList getListDataBits(void);
-    QStringList getListFlowControl(void);
-    QStringList getListParity(void);
-    QStringList getListStopBits(void);
-
     void newSlaveDevice(void);
     QList<int> listSlaveId(void);
 
