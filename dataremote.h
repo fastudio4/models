@@ -14,21 +14,25 @@ public:
     Data();
     virtual ~Data();
     QStringList uploadListPort();
+    int indexPortName(const QString &portName);
     int indexBaudRate(int indexPort);
     int indexDataBits(int indexPort);
     int indexFlowControl(int indexPort);
     int indexParity(int indexPort);
     int indexStopBits(int indexPort);
+
     int countData() {return data.count();}
-private:
+    QStringList listPorts() {return uploadListPort();}
+
     QStringList getListBaudRate(void);
     QStringList getListDataBits(void);
     QStringList getListFlowControl(void);
     QStringList getListParity(void);
     QStringList getListStopBits(void);
-
+private:
     void fillPortData(const QString &namePort);
     QList<DataPort> data;
+    QList<QString> portsName;
 
 };
 

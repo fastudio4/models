@@ -2,7 +2,8 @@
 #define DIALOGPORT_H
 #include <QDialog>
 #include "ui_port.h"
-#include <QSerialPortInfo>
+#include "dataremote.h"
+
 namespace MODEL {
 
 class DialogPort : public QDialog
@@ -11,16 +12,14 @@ class DialogPort : public QDialog
 public:
     DialogPort(QWidget *parent = nullptr);
     virtual ~DialogPort();
-    void defaultSettingPort(void);
 private slots:
-    void on_cbxPort_activated(const QString &arg1);
     void on_btnScanPort_clicked();
-    void on_cbxPort_currentIndexChanged(const QString &arg1);
+    void on_cbxPort_currentIndexChanged(int index);
 
 private:
-    QStringList portName(void);
     Ui::PortSettingDialog port;
-    QList<QSerialPortInfo> listPorts;
+    DATA::Data dataPorts;
+
 
 };
 } //namespace MODEL

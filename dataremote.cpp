@@ -1,5 +1,6 @@
 #include <QSerialPortInfo>
 #include <QSerialPort>
+#include <QDebug>
 #include "dataremote.h"
 namespace DATA {
 
@@ -7,6 +8,7 @@ namespace DATA {
 Data::Data()
 {
     data.clear();
+    portsName.clear();
 }
 
 Data::~Data()
@@ -21,9 +23,12 @@ QStringList Data::uploadListPort()
     {
         QStringList portName;
         portName.clear();
+        portsName.clear();
         for(int i = 0; i < ports.count(); i ++)
         {
             portName.append(ports[i].portName());
+            portsName.append(ports[i].portName());
+            fillPortData(ports[i].portName());
         }
         return portName;
     }
@@ -33,6 +38,11 @@ QStringList Data::uploadListPort()
         emptyPort.clear();
         return emptyPort;
     }
+}
+
+int Data::indexPortName(const QString &portName)
+{
+    return portsName.indexOf(portName);
 }
 
 int Data::indexBaudRate(int indexPort)
@@ -55,22 +65,23 @@ int Data::indexDataBits(int indexPort)
 int Data::indexFlowControl(int indexPort)
 {
     QString flowControl = data[indexPort].getFlowControl();
-    QList<QString> listFlowControl = {"No flow", "Hardware", "Software"};
+    QList<QString> listFlowControl = {"NoFlowControl", "HardwareControl",
+                                      "SoftwareControl", "UnknownFlowControl"};
     return listFlowControl.indexOf(flowControl);
 }
 
 int Data::indexParity(int indexPort)
 {
     QString parity = data[indexPort].getParity();
-    QList<QString> listParity = {"No parity", "Even Parity", "Odd Parity",
-                                 "Space Parity", "Mark Parity"};
+    QList<QString> listParity = {"NoParity", "EvenParity", "OddParity",
+                                 "SpaceParity", "MarkParity", "UnknownParity"};
     return listParity.indexOf(parity);
 }
 
 int Data::indexStopBits(int indexPort)
 {
     QString stopBits = data[indexPort].getStopBits();
-    QList<QString> listStopBits = {"1","1.5", "2"};
+    QList<QString> listStopBits = {"OneStop","OneAndHalfStop", "TwoStop"};
     return listStopBits.indexOf(stopBits);
 }
 
@@ -81,6 +92,10 @@ void Data::fillPortData(const QString &namePort)
     onePort.setBaudRate(QString::number(dataPort->baudRate()));
     onePort.setDataBits(QString::number(dataPort->dataBits()));
     onePort.setFlowControl(QString::number(dataPort->flowControl()));
+    qDebug() << QString::number(dataPort->flowControl());
+    qDebug() << QString::number(dataPort->parity());
+    qDebug() << QString::number(dataPort->stopBits());
+
     onePort.setParity(QString::number(dataPort->parity()));
     onePort.setStopBits(QString::number(dataPort->stopBits()));
     data.append(onePort);
@@ -101,19 +116,21 @@ QStringList Data::getListDataBits()
 
 QStringList Data::getListFlowControl()
 {
-    QStringList flowControl = {"No flow", "Hardware", "Software"};
+    QStringList flowControl = {"NoFlowControl", "HardwareControl",
+                               "SoftwareControl", "UnknownFlowControl"};
     return flowControl;
 }
 
 QStringList Data::getListParity()
 {
-    QStringList parity = {"No parity", "Even Parity", "Odd Parity", "Space Parity", "Mark Parity"};
+    QStringList parity = {"NoParity", "EvenParity", "OddParity",
+                          "SpaceParity", "MarkParity", "UnknownParity"};
     return parity;
 }
 
 QStringList Data::getListStopBits()
 {
-    QStringList stopBits = {"1","1.5", "2"};
+    QStringList stopBits = {"OneStop","OneAndHalfStop", "TwoStop"};
     return stopBits;
 }
 
