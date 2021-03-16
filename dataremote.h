@@ -1,7 +1,6 @@
 #ifndef DATA_H
 #define DATA_H
 
-#include <QSerialPort>
 #include <QList>
 #include "dataport.h"
 //#include "datadevice.h"
@@ -10,6 +9,7 @@ namespace DATA {
 
 class Data
 {
+
 public:
     Data();
     virtual ~Data();
@@ -18,7 +18,10 @@ public:
     int indexDataBits();
     int indexFlowControl();
     int indexParity();
+//    QString aliasPort();
+    int indexStopBits();
 private:
+    void fillPortData(const QString &name);
     QList<DataPort> data;
 
 };

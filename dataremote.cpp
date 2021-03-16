@@ -1,5 +1,6 @@
 #include <QSerialPortInfo>
-#include "data.h"
+#include <QSerialPort>
+#include "dataremote.h"
 namespace DATA {
 
 
@@ -32,6 +33,12 @@ QStringList Data::uploadListPort()
         emptyPort.clear();
         return emptyPort;
     }
+}
+
+void Data::fillPortData(const QString &name)
+{
+    QSerialPort *dataPort = new QSerialPort(name);
+
 }
 
 }
