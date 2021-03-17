@@ -27,15 +27,29 @@ void MODEL::DialogPort::on_btnScanPort_clicked()
 
 void MODEL::DialogPort::on_cbxPort_currentIndexChanged(int index)
 {
-    port.cbxBaudRate->addItems(dataPorts.getListBaudRate());
+    if (!port.cbxBaudRate->count())
+    {
+        port.cbxBaudRate->addItems(dataPorts.getListBaudRate());
+    }
     port.cbxBaudRate->setCurrentIndex(dataPorts.indexBaudRate(index));
-    port.cbxDataBits->addItems(dataPorts.getListDataBits());
+    if (!port.cbxDataBits->count())
+    {
+        port.cbxDataBits->addItems(dataPorts.getListDataBits());
+    }
     port.cbxDataBits->setCurrentIndex(dataPorts.indexDataBits(index));
-    port.cbxFlowControl->addItems(dataPorts.getListFlowControl());
+    if (!port.cbxFlowControl->count())
+    {
+        port.cbxFlowControl->addItems(dataPorts.getListFlowControl());
+    }
     port.cbxFlowControl->setCurrentIndex(dataPorts.indexFlowControl(index));
-    port.cbxParity->addItems(dataPorts.getListParity());
+    if (!port.cbxParity->count())
+    {
+        port.cbxParity->addItems(dataPorts.getListParity());
+    }
     port.cbxParity->setCurrentIndex(dataPorts.indexParity(index));
-    port.cbxStopBits->addItems(dataPorts.getListStopBits());
+    if (!port.cbxStopBits->count())
+    {
+        port.cbxStopBits->addItems(dataPorts.getListStopBits());
+    }
     port.cbxStopBits->setCurrentIndex(dataPorts.indexStopBits(index));
-
 }

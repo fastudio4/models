@@ -73,15 +73,15 @@ int Data::indexFlowControl(int indexPort)
 int Data::indexParity(int indexPort)
 {
     QString parity = data[indexPort].getParity();
-    QList<QString> listParity = {"NoParity", "EvenParity", "OddParity",
-                                 "SpaceParity", "MarkParity", "UnknownParity"};
+    QList<QString> listParity = {"No Parity", "Even Parity", "Odd Parity",
+                                 "Space Parity", "Mark Parity", "Unknown Parity"};
     return listParity.indexOf(parity);
 }
 
 int Data::indexStopBits(int indexPort)
 {
     QString stopBits = data[indexPort].getStopBits();
-    QList<QString> listStopBits = {"OneStop","OneAndHalfStop", "TwoStop"};
+    QList<QString> listStopBits = {"1","1.5", "2"};
     return listStopBits.indexOf(stopBits);
 }
 
@@ -92,10 +92,6 @@ void Data::fillPortData(const QString &namePort)
     onePort.setBaudRate(QString::number(dataPort->baudRate()));
     onePort.setDataBits(QString::number(dataPort->dataBits()));
     onePort.setFlowControl(QString::number(dataPort->flowControl()));
-    qDebug() << QString::number(dataPort->flowControl());
-    qDebug() << QString::number(dataPort->parity());
-    qDebug() << QString::number(dataPort->stopBits());
-
     onePort.setParity(QString::number(dataPort->parity()));
     onePort.setStopBits(QString::number(dataPort->stopBits()));
     data.append(onePort);
@@ -116,21 +112,21 @@ QStringList Data::getListDataBits()
 
 QStringList Data::getListFlowControl()
 {
-    QStringList flowControl = {"NoFlowControl", "HardwareControl",
-                               "SoftwareControl", "UnknownFlowControl"};
+    QStringList flowControl = {"No Flow Control", "Hardware Control",
+                               "Software Control", "Unknown Flow Control"};
     return flowControl;
 }
 
 QStringList Data::getListParity()
 {
-    QStringList parity = {"NoParity", "EvenParity", "OddParity",
-                          "SpaceParity", "MarkParity", "UnknownParity"};
+    QStringList parity = {"No Parity", "Even Parity", "Odd Parity",
+                          "Space Parity", "Mark Parity", "Unknown Parity"};
     return parity;
 }
 
 QStringList Data::getListStopBits()
 {
-    QStringList stopBits = {"OneStop","OneAndHalfStop", "TwoStop"};
+    QStringList stopBits = {"1","1.5", "2"};
     return stopBits;
 }
 
